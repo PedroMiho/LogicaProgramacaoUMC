@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fontes no HTML e CSS</title>
+
+        <style>
+            
+            @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+
+
+            h1, h2 {
+                font-family: "Sigmar", serif;
+                font-weight: 400;
+                font-style: normal;
+                text-align: center;
+            }
+            
+            p {
+                /*Modificando o tipo de fonte*/
+                font-family: 'Times New Roman', Times, serif;
+                /*Modificando o tamanho da fonte*/
+                font-size: 1em;
+                /*Alinhamento do Texto*/
+                text-align: justify;
+                /*Espaçamento entre linhas*/
+                line-height: 20px;
+                /*Espaçamento entre caracteres*/
+                letter-spacing: 2px;
+                /*Indentação na primeira linha*/
+                text-indent: 50px;
+            }
+
+            span {
+                font-weight: bold;
+                font-style: italic;
+                color: brown;
+            }
+
+            a {
+                text-decoration: none;
+                color: chartreuse;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        
+        <header>
+            <h1>Bem-vindo ao nosso site</h1>
+        </header>
+        
+        <main>
+            <section>
+                <h2>Alterando o tipo da fonte</h2>                
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis deserunt quaerat alias tenetur illum iusto. Similique ipsa tempore fugiat eius possimus dolor, nesciunt itaque tempora recusandae quis sapiente iste quaerat.</p>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit vel delectus laborum inventore soluta recusandae eos? Corporis, <span>est iure. Exercitationem excepturi atque </span>libero iure soluta ut doloribus totam incidunt illo! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora libero fugiat commodi vero obcaecati aliquid perspiciatis sit dolores officia atque et voluptas cum, quidem, illo eligendi necessitatibus nihil corrupti quibusdam.</p>
+
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perferendis, dignissimos quae, exercitationem quod voluptas vel officia doloremque maiores quaerat quisquam ipsam ut. Temporibus aperiam necessitatibus dolor fugiat. Quibusdam, tempora <a href="">Clique aqui</a>.</p>
+
+            </section>
+        </main>
+            
+    </body>
+</html>
