@@ -44,6 +44,46 @@
 
         <?php
 
+            if($_SERVER["REQUEST_METHOD"] == "POST") {
+                
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+                try{
+                    //Capturar um arquivo externo
+                    include("../conexao/conexao.php");
+
+                    //Variáveis usuários
+                    $nome = $_POST["nome"];
+                    $sobrenome = $_POST["sobrenome"];
+                    $email = $_POST["email"];
+                    $curso = $_POST["curso"];
+                    $prefixo = "1124";
+                    $id = $prefixo . rand(100,999);
+
+                    //Consulta SQL 
+                    $sql = "INSERT INTO usuarios (id, nome, sobrenome, email, curso)  VALUES (?, ?, ?, ?, ?)";
+
+                    //Preparar a consulta
+                    $stmt = $conn->prepare($sql);
+
+                    //Vincular as variáveis do usuário com a consulta SQL
+                    $stmt->bind_param("sssss" , $id, $nome, $sobrenome, $email, $curso);
+
+                    //Executar a consulta
+                    $stmt->execute();
+
+                    //Exibindo a mensagem de sucesso
+                    echo "<div class = 'mensagem sucesso'> Usuário cadastrado com sucesso </div>";
+
+                    //Encerrar a consulta SQL e Conexão com o banco de dados
+                    $stmt->close();
+                    $conn->close();
+                }
+                catch (mysqli_sql_exception $e){
+                    echo "<div class = 'mensagem erro'> Erro ao cadastrar " . $e->getMessage() . "</div>";
+                }
+                
+            }
             
 
 
