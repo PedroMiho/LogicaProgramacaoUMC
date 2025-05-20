@@ -151,6 +151,11 @@ table {
     color: #721c24;
 }
 
+.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
 #btn-excluir {
     background-color: #e74c3c; /* Vermelho */
     color: white;
@@ -170,3 +175,4 @@ table {
 #botao-nota {
     display: block;
 }
+

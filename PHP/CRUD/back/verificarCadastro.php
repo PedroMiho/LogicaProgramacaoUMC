@@ -58,19 +58,57 @@
                         
                         
                         if ($resultado->num_rows > 0){
-                            echo "ELE EXISTE";
                             //Armazenar as informações vindas do DB
                             $row = $resultado->fetch_assoc();
-                            echo var_dump($row);
+                            
+                            echo "                                
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Sobrenome</th>
+                                            <th>E-mail</th>
+                                            <th>Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td>{$row['ID']}</td>
+                                        <td>{$row['NOME']}</td>
+                                        <td>{$row['SOBRENOME']}</td>
+                                        <td>{$row['EMAIL']}</td>
+                                        <td>
+                                            <form action='excluirCadastro.php' method='post'>
+                                                <input type='hidden' name='id' value='{$row['ID']}'>
+                                                <input type='submit' id='btn-excluir' value='Excluir'>
+                                            </form>
+                                        </td>
+                                    </tbody>
+                                </table>
+                                                            
+                            ";
 
                         }else {
-                            echo "ELE NÃO EXISTE";
+                            echo "<div class='mensagem erro'> E-mail $email não encontrado </div>";
                         }
+
+                        //Encerra a consulta SQL
+                        $stmt->close();
+                    } else {
+                        echo "<div class='mensagem erro'>Erro na consulta </div>";
                     }
 
+                    //Encerra a conexão com o Banco de dados
+                    $conn->close();
 
                 }
 
+            ?>
+
+            <?php 
+                if(isset($_GET['excluido']) && $_GET['excluido'] == 1) {
+                    echo "<div class='mensagem sucesso'>Cadastro Excluído com sucesso </div>";
+                }
             ?>
 
         </section>
